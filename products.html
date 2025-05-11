@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TipToe Soles - Products</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles specific to Products page */
+        .category-navigation {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: var(--light-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .category-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+        }
+        
+        .category-list li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: var(--primary-color);
+            background: white;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+        
+        .category-list li a:hover, 
+        .category-list li a.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .product-filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .filter-options {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .filter-options select {
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        
+        .sort-options {
+            display: flex;
+            align-items: center;
+        }
+        
+        .sort-options label {
+            margin-right: 10px;
+        }
+        
+        .category-section {
+            margin-bottom: 40px;
+        }
+        
+        .product-pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .pagination-list {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+        
+        .pagination-list li a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 35px;
+            text-decoration: none;
+            color: var(--primary-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .pagination-list li a:hover,
+        .pagination-list li a.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        /* Product details grid */
+        .product-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .product-detail {
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .product-detail svg {
+            flex-shrink: 0;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .view-details {
+            flex: 1;
+            padding: 8px;
+            background: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .view-details:hover {
+            background: var(--light-color);
+        }
+        
+        .color-options {
+            display: flex;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .color-option {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+        
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .view-all {
+            font-size: 0.9em;
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .view-all:hover {
+            color: var(--primary-color);
+        }
+        
+        .product-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.8em;
+            border-radius: 4px;
+        }
+        
+        .product-tag.sale {
+            background: #e53935;
+        }
+        
+        .product-tag.new {
+            background: #43a047;
+        }
+        
+        /* Sale price styling */
+        .sale-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .product-filters {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .filter-options {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+            
+            .sort-options {
+                width: 100%;
+            }
+            
+            .sort-options select {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="container">
+        <!-- Left sidebar/main menu -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/api/placeholder/200/100" alt="TipToe Soles Logo">
+            </div>
+            <ul class="menu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="#" class="active">Products</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" placeholder="Search products..." aria-label="Search products">
+                <button type="button" aria-label="Search">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main content area -->
+        <div class="main-content" id="main-content">
+            <!-- Banner with products image -->
+            <div class="banner">
+                <img src="/api/placeholder/800/600" alt="TipToe Soles footwear collection">
+                <div class="banner-content">
+                    <h1>Our Footwear Collection</h1>
+                    <p>Discover the perfect blend of comfort, durability, and style.</p>
+                </div>
+            </div>
+
+            <!-- Category Navigation -->
+            <div class="category-navigation">
+                <h2>Product Categories</h2>
+                <ul class="category-list">
+                    <li><a href="#daily-comfort" class="active">Daily Comfort</a></li>
+                    <li><a href="#work">Work & Office</a></li>
+                    <li><a href="#weekend">Weekend & Casual</a></li>
+                    <li><a href="#walking">Walking & Active</a></li>
+                    <li><a href="#formal">Formal Occasions</a></li>
+                    <li><a href="#sale">Sale Items</a></li>
+                </ul>
+            </div>
+
+            <!-- Product Filters -->
+            <div class="product-filters">
+                <div class="filter-options">
+                    <select aria-label="Filter by size">
+                        <option value="">Size: All</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <select aria-label="Filter by color">
+                        <option value="">Color: All</option>
+                        <option value="black">Black</option>
+                        <option value="brown">Brown</option>
+                        <option value="grey">Grey</option>
+                        <option value="navy">Navy</option>
+                        <option value="beige">Beige</option>
+                        <option value="white">White</option>
+                        <option value="taupe">Taupe</option>
+                    </select>
+                    <select aria-label="Filter by price">
+                        <option value="">Price: All</option>
+                        <option value="under-80">Under $80</option>
+                        <option value="80-100">$80 - $100</option>
+                        <option value="over-100">Over $100</option>
+                    </select>
+                </div>
+                <div class="sort-options">
+                    <label for="sort-by">Sort by:</label>
+                    <select id="sort-by" aria-label="Sort products">
+                        <option value="newest">Newest First</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Daily Comfort Section -->
+            <div id="daily-comfort" class="category-section">
+                <div class="category-header">
+                    <h2 class="section-title">Daily Comfort Collection</h2>
+                    <a href="#" class="view-all">View All Daily Comfort</a>
+                </div>
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/300" alt="Daily Comfort Brown Shoes">
+                            <div class="product-tag">Bestseller</div>
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Daily Comfort Brown Shoes</h3>
+                            <p class="product-price">$89.99</p>
+                            <div class="product-details">
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 13a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+                                    </svg>
+                                    <span>Sizes 6-12</span>
+                                </div>
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                    </svg>
+                                    <span>3 Colors</span>
+                                </div>
+                            </div>
+                            <div class="color-options">
+                                <div class="color-option" style="background-color: #8B4513;" aria-label="Brown color option"></div>
+                                <div class="color-option" style="background-color: #000000;" aria-label="Black color option"></div>
+                                <div class="color-option" style="background-color: #808080;" aria-label="Grey color option"></div>
+                            </div>
+                            <div class="product-actions">
+                                <a href="#" class="view-details">View Details</a>
+                                <button class="add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/300" alt="CloudStep Everyday Shoes">
+                            <div class="product-tag new">New</div>
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">CloudStep Everyday Shoes</h3>
+                            <p class="product-price">$94.99</p>
+                            <div class="product-details">
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 13a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+                                    </svg>
+                                    <span>Sizes 5-11</span>
+                                </div>
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                    </svg>
+                                    <span>4 Colors</span>
+                                </div>
+                            </div>
+                            <div class="color-options">
+                                <div class="color-option" style="background-color: #000000;" aria-label="Black color option"></div>
+                                <div class="color-option" style="background-color: #8B4513;" aria-label="Brown color option"></div>
+                                <div class="color-option" style="background-color: #000080;" aria-label="Navy color option"></div>
+                                <div class="color-option" style="background-color: #D2B48C;" aria-label="Taupe color option"></div>
+                            </div>
+                            <div class="product-actions">
+                                <a href="#" class="view-details">View Details</a>
+                                <button class="add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/300" alt="Soft Step Lounge Shoes">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Soft Step Lounge Shoes</h3>
+                            <p class="product-price">$79.99</p>
+                            <div class="product-details">
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 13a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+                                    </svg>
+                                    <span>Sizes 6-12</span>
+                                </div>
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                    </svg>
+                                    <span>2 Colors</span>
+                                </div>
+                            </div>
+                            <div class="color-options">
+                                <div class="color-option" style="background-color: #D2B48C;" aria-label="Taupe color option"></div>
+                                <div class="color-option" style="background-color: #808080;" aria-label="Grey color option"></div>
+                            </div>
+                            <div class="product-actions">
+                                <a href="#" class="view-details">View Details</a>
+                                <button class="add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/300" alt="Breeze Walk Slip-Ons">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Breeze Walk Slip-Ons</h3>
+                            <p class="product-price">$84.99</p>
+                            <div class="product-details">
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 13a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+                                    </svg>
+                                    <span>Sizes 5-12</span>
+                                </div>
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                    </svg>
+                                    <span>3 Colors</span>
+                                </div>
+                            </div>
+                            <div class="color-options">
+                                <div class="color-option" style="background-color: #F5F5DC;" aria-label="Beige color option"></div>
+                                <div class="color-option" style="background-color: #000000;" aria-label="Black color option"></div>
+                                <div class="color-option" style="background-color: #000080;" aria-label="Navy color option"></div>
+                            </div>
+                            <div class="product-actions">
+                                <a href="#" class="view-details">View Details</a>
+                                <button class="add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Work & Office Section -->
+            <div id="work" class="category-section">
+                <div class="category-header">
+                    <h2 class="section-title">Work & Office Collection</h2>
+                    <a href="#" class="view-all">View All Work & Office</a>
+                </div>
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/300" alt="Classic Work Oxford">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
