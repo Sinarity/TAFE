@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - TipToe Soles</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .service-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-title {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .service-description {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .service-cta {
+            display: inline-block;
+            padding: 8px 15px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        
+        .service-cta:hover {
+            background: var(--secondary-color);
+        }
+        
+        .appointment-form {
+            background: var(--light-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .form-col {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .service-icon {
+            font-size: 24px;
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .testimonial {
+            background: var(--light-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            text-align: right;
+        }
+        
+        .quote-mark {
+            font-size: 60px;
+            position: absolute;
+            opacity: 0.1;
+            top: 0;
+            left: 10px;
+            font-family: Georgia, serif;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="container">
+        <!-- Left sidebar/main menu -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/api/placeholder/200/100" alt="TipToe Soles Logo">
+            </div>
+            <ul class="menu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#" class="active">Services</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" placeholder="Search services..." aria-label="Search services">
+                <button type="button" aria-label="Search">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main content area -->
+        <div class="main-content" id="main-content">
+            <!-- Banner section -->
+            <div class="banner">
+                <img src="/api/placeholder/800/400" alt="Professional footwear services">
+                <div class="banner-content">
+                    <h1>Our Professional Services</h1>
+                    <p>Expert care for your feet and footwear to ensure maximum comfort and longevity.</p>
+                </div>
+            </div>
+
+            <!-- Services Introduction -->
+            <div style="margin: 30px 0;">
+                <h2>Welcome to TipToe Soles Services</h2>
+                <p>At TipToe Soles, we believe that proper footwear care goes beyond just buying quality shoes. Our comprehensive range of services ensures that your feet remain comfortable and your footwear lasts longer. From professional fitting to custom orthotics, we've got everything covered to enhance your walking experience.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <h2 class="section-title">Our Services</h2>
+            
+            <!-- Service 1 -->
+            <div class="service-card">
+                <img src="/api/placeholder/800/400" alt="Professional Foot Measurement" class="service-image">
+                <div class="service-content">
+                    <h3 class="service-title">Professional Foot Measurement</h3>
+                    <p class="service-description">Our trained specialists use state-of-the-art 3D scanning technology to analyze your feet and determine the perfect fit. This service helps identify the ideal shoe size, width, and arch support for your unique foot structure.</p>
+                    <a href="#appointment" class="service-cta">Book an Appointment</a>
+                </div>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="service-card">
+                <img src="/api/placeholder/800/400" alt="Custom Orthotics" class="service-image">
+                <div class="service-content">
+                    <h3 class="service-title">Custom Orthotics</h3>
+                    <p class="service-description">Our podiatrists create personalized orthotic inserts designed specifically for your feet. These custom insoles provide targeted support to alleviate foot pain, correct posture issues, and enhance overall comfort while walking or standing.</p>
+                    <a href="#appointment" class="service-cta">Book an Appointment</a>
+                </div>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="service-card">
+                <img src="/api/placeholder/800/400" alt="Shoe Stretching & Adjustment" class="service-image">
+                <div class="service-content">
+                    <h3 class="service-title">Shoe Stretching & Adjustment</h3>
+                    <p class="service-description">If your shoes are slightly tight or causing discomfort in specific areas, our professional stretching service can help. We carefully modify your footwear to accommodate bunions, wide feet, or other specific needs without compromising the shoe's integrity.</p>
+                    <a href="#appointment" class="service-cta">Book an Appointment</a>
+                </div>
+            </div>
+            
+            <!-- Service 4 -->
+            <div class="service-card">
+                <img src="/api/placeholder/800/400" alt="Footwear Maintenance & Repair" class="service-image">
+                <div class="service-content">
+                    <h3 class="service-title">Footwear Maintenance & Repair</h3>
+                    <p class="service-description">Extend the life of your favorite shoes with our maintenance and repair services. We offer resoling, heel replacement, stitching repair, and professional cleaning to keep your footwear looking and feeling great for years to come.</p>
+                    <a href="#appointment" class="service-cta">Book an Appointment</a>
+                </div>
+            </div>
+            
+            <!-- Service 5 -->
+            <div class="service-card">
+                <img src="/api/placeholder/800/400" alt="Gait Analysis" class="service-image">
+                <div class="service-content">
+                    <h3 class="service-title">Gait Analysis</h3>
+                    <p class="service-description">Our experts analyze your walking pattern to identify potential issues affecting your comfort and posture. This comprehensive assessment helps recommend the perfect footwear types and potential adjustments to improve your walking mechanics.</p>
+                    <a href="#appointment" class="service-cta">Book an Appointment</a>
+                </div>
+            </div>
+            
+            <!-- Service 6 -->
+            <div class="service-card">
+                <img src="/api/placeholder/800/400" alt="Footwear Consultation" class="service-image">
+                <div class="service-content">
+                    <h3 class="service-title">Footwear Consultation</h3>
+                    <p class="service-description">Not sure which shoes are right for your lifestyle, foot type, or specific condition? Our personalized consultation service provides expert guidance to help you make informed decisions about your footwear purchases.</p>
+                    <a href="#appointment" class="service-cta">Book an Appointment</a>
+                </div>
+            </div>
+
+            <!-- Appointment Form -->
+            <div class="appointment-form" id="appointment">
+                <h2>Book an Appointment</h2>
+                <p>Schedule a service with our footwear specialists. We'll get back to you within 24 hours to confirm your appointment.</p>
+                <form>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="service">Service Type</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="measurement">Professional Foot Measurement</option>
+                                    <option value="orthotics">Custom Orthotics</option>
+                                    <option value="stretching">Shoe Stretching & Adjustment</option>
+                                    <option value="repair">Footwear Maintenance & Repair</option>
+                                    <option value="gait">Gait Analysis</option>
+                                    <option value="consultation">Footwear Consultation</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="date">Preferred Date</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="time">Preferred Time</label>
+                                <select id="time" name="time" required>
+                                    <option value="">Select a time</option>
+                                    <option value="morning">9:00 AM - 12:00 PM</option>
+                                    <option value="afternoon">12:00 PM - 3:00 PM</option>
+                                    <option value="evening">3:00 PM - 6:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Request Appointment</button>
+                </form>
+            </div>
+
+            <!-- Testimonials -->
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonial">
+                <div class="quote-mark">&ldquo;</div>
+                <p class="testimonial-text">The custom orthotics service changed my life! After years of foot pain, I can finally enjoy long walks without discomfort. The staff was professional and knowledgeable throughout the entire process.</p>
+                <p class="testimonial-author">- Sarah J., Custom Orthotics Client</p>
+            </div>
+            <div class="testimonial">
+                <div class="quote-mark">&ldquo;</div>
+                <p class="testimonial-text">I was amazed by how much difference the professional foot measurement made in finding the right shoes. The 3D scanning technology identified issues I didn't even know I had with my previous footwear.</p>
+                <p class="testimonial-author">- Michael T., Foot Measurement Client</p>
+            </div>
+            <div class="testimonial">
+                <div class="quote-mark">&ldquo;</div>
+                <p class="testimonial-text">The shoe repair service extended the life of my favorite work shoes by at least another year. The craftsmanship was excellent, and they look almost brand new. Highly recommend!</p>
+                <p class="testimonial-author">- Jennifer L., Repair Service Client</p>
+            </div>
+
+            <!-- FAQ Section -->
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3 class="faq-question">How long does a foot measurement session take?</h3>
+                <p>A professional foot measurement typically takes 20-30 minutes, including the 3D scanning and consultation with our specialist.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">How often should I replace my custom orthotics?</h3>
+                <p>Custom orthotics generally last between 1-3 years depending on use, but we recommend annual check-ups to ensure they're still providing optimal support.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Can you stretch all types of shoes?</h3>
+                <p>Most leather and some synthetic materials can be stretched to some degree. During your consultation, our specialists will evaluate if your shoes are suitable for our stretching service.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">How long does the shoe repair service take?</h3>
+                <p>Most repair services are completed within 3-7 business days, depending on the type of repair and current workload. For urgent cases, we offer expedited services at an additional cost.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Do I need a referral for gait analysis?</h3>
+                <p>No referral is necessary. Our gait analysis service is available to anyone looking to improve their walking comfort or address foot-related issues.</p>
+            </div>
+            <div class="faq-item">
+                <h3 class="faq-question">Are your services covered by insurance?</h3>
+                <p>Some services like custom orthotics may be covered by health insurance plans. We recommend checking with your provider before your appointment. We provide detailed receipts for insurance claim purposes.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h3>Customer Policies</h3>
+                <ul>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Exchange Policy</a></li>
+                    <li><a href="#">Delivery Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>About TipToe Soles</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Manufacturing</a></li>
+                    <li><a href="#">Materials</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Help & Support</h3>
+                <ul>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping Information</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect With Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Pinterest</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TipToe Soles. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple toggle functionality for FAQ items
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
