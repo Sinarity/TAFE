@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TipToe Soles - Wishlist</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="container">
+        <!-- Left sidebar/main menu -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/api/placeholder/200/100" alt="TipToe Soles Logo">
+            </div>
+            <ul class="menu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#" class="active">Wishlist</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" placeholder="Search products..." aria-label="Search products">
+                <button type="button" aria-label="Search">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main content area -->
+        <div class="main-content" id="main-content">
+            <h1 class="section-title">My Wishlist</h1>
+            
+            <!-- Empty wishlist message (shown if no items) -->
+            <div class="wishlist-empty" style="display: none;">
+                <img src="/api/placeholder/200/200" alt="Empty wishlist" style="margin: 0 auto; display: block;">
+                <p style="text-align: center; margin: 20px 0;">Your wishlist is empty. Browse our products and add your favorites!</p>
+                <div style="text-align: center;">
+                    <a href="#" style="display: inline-block; padding: 10px 20px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 4px;">Explore Products</a>
+                </div>
+            </div>
+
+            <!-- Wishlist items -->
+            <div class="wishlist-items">
+                <!-- Item 1 -->
+                <div class="wishlist-item">
+                    <div class="wishlist-image">
+                        <img src="/api/placeholder/150/150" alt="Daily Comfort Brown Shoes">
+                    </div>
+                    <div class="wishlist-details">
+                        <h3>Daily Comfort Brown Shoes</h3>
+                        <p class="price">$89.99</p>
+                        <p class="stock-status in-stock">In Stock</p>
+                        <div class="wishlist-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="remove-item">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg>
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="wishlist-item">
+                    <div class="wishlist-image">
+                        <img src="/api/placeholder/150/150" alt="Urban Step Navy Shoes">
+                    </div>
+                    <div class="wishlist-details">
+                        <h3>Urban Step Navy Shoes</h3>
+                        <p class="price">$84.99</p>
+                        <p class="stock-status in-stock">In Stock</p>
+                        <div class="wishlist-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="remove-item">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg>
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="wishlist-item">
+                    <div class="wishlist-image">
+                        <img src="/api/placeholder/150/150" alt="Soft Step Taupe Shoes">
+                    </div>
+                    <div class="wishlist-details">
+                        <h3>Soft Step Taupe Shoes</h3>
+                        <p class="price">$89.99</p>
+                        <p class="stock-status low-stock">Low Stock</p>
+                        <div class="wishlist-actions">
+                            <button class="add-to-cart">Add to Cart</button>
+                            <button class="remove-item">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                </svg>
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wishlist controls -->
+            <div class="wishlist-controls">
+                <button class="clear-wishlist">Clear Wishlist</button>
+                <button class="add-all-to-cart">Add All to Cart</button>
+            </div>
+
+            <!-- You may also like section -->
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/api/placeholder/400/300" alt="Classic Work Brown Shoes">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Classic Work Brown Shoes</h3>
+                        <p class="product-price">$99.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/api/placeholder/400/300" alt="Everyday Walk Black Shoes">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Everyday Walk Black Shoes</h3>
+                        <p class="product-price">$79.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/api/placeholder/400/300" alt="Comfort Plus Grey Shoes">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Comfort Plus Grey Shoes</h3>
+                        <p class="product-price">$94.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/api/placeholder/400/300" alt="Daily Flex White Shoes">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Daily Flex White Shoes</h3>
+                        <p class="product-price">$79.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h3>Customer Policies</h3>
+                <ul>
+                    <li><a href="#">Return Policy</a></li>
+                    <li><a href="#">Exchange Policy</a></li>
+                    <li><a href="#">Delivery Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>About TipToe Soles</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Manufacturing</a></li>
+                    <li><a href="#">Materials</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Help & Support</h3>
+                <ul>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Shipping Information</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect With Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Pinterest</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TipToe Soles. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        /* Additional styles for wishlist page */
+        .wishlist-item {
+            display: flex;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            background: white;
+        }
+        
+        .wishlist-image {
+            flex: 0 0 150px;
+        }
+        
+        .wishlist-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .wishlist-details {
+            flex: 1;
+            padding: 15px;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin: 5px 0;
+        }
+        
+        .stock-status {
+            margin: 5px 0 15px;
+            font-size: 0.9em;
+        }
+        
+        .in-stock {
+            color: #2ecc71;
+        }
+        
+        .low-stock {
+            color: #f39c12;
+        }
+        
+        .out-of-stock {
+            color: #e74c3c;
+        }
+        
+        .wishlist-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .add-to-cart {
+            padding: 8px 15px;
+        }
+        
+        .remove-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 8px 15px;
+            cursor: pointer;
+            color: var(--secondary-color);
+            transition: all 0.3s;
+        }
+        
+        .remove-item:hover {
+            background: #f5f5f5;
+            color: #e74c3c;
+        }
+        
+        .wishlist-controls {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin: 20px 0 30px;
+        }
+        
+        .clear-wishlist {
+            padding: 10px 20px;
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .clear-wishlist:hover {
+            background: #f5f5f5;
+        }
+        
+        .add-all-to-cart {
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .add-all-to-cart:hover {
+            background: var(--secondary-color);
+        }
+        
+        @media (max-width: 600px) {
+            .wishlist-item {
+                flex-direction: column;
+            }
+            
+            .wishlist-image {
+                flex: none;
+                height: 200px;
+            }
+            
+            .wishlist-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>
