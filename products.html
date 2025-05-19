@@ -14,14 +14,16 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-        
+
         .category-list {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             list-style: none;
+            padding: 0; /* Added to remove default list padding */
+            margin: 0; /* Added to remove default list margin */
         }
-        
+
         .category-list li a {
             display: block;
             padding: 8px 15px;
@@ -32,13 +34,13 @@
             border: 1px solid var(--border-color);
             transition: all 0.3s;
         }
-        
-        .category-list li a:hover, 
+
+        .category-list li a:hover,
         .category-list li a.active {
             background: var(--primary-color);
             color: white;
         }
-        
+
         .product-filters {
             display: flex;
             justify-content: space-between;
@@ -47,43 +49,47 @@
             padding-bottom: 15px;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .filter-options {
             display: flex;
+            flex-wrap: wrap; /* Added for responsiveness */
             gap: 15px;
         }
-        
+
         .filter-options select {
             padding: 8px;
             border: 1px solid var(--border-color);
             border-radius: 4px;
         }
-        
+
         .sort-options {
             display: flex;
             align-items: center;
         }
-        
+
         .sort-options label {
             margin-right: 10px;
         }
-        
+
         .category-section {
             margin-bottom: 40px;
+            padding-top: 20px; /* Added padding for smooth scroll offset */
         }
-        
+
         .product-pagination {
             display: flex;
             justify-content: center;
             margin-top: 30px;
         }
-        
+
         .pagination-list {
             display: flex;
             list-style: none;
             gap: 5px;
+            padding: 0; /* Added to remove default list padding */
+            margin: 0; /* Added to remove default list margin */
         }
-        
+
         .pagination-list li a {
             display: flex;
             justify-content: center;
@@ -96,19 +102,106 @@
             border-radius: 4px;
             transition: all 0.3s;
         }
-        
+
         .pagination-list li a:hover,
         .pagination-list li a.active {
             background: var(--primary-color);
             color: white;
         }
-        
+
         /* Product details grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjusted minmax for better card size */
+            gap: 20px; /* Increased gap */
+        }
+
+        .product-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .product-image {
+            position: relative;
+            width: 100%;
+            padding-top: 75%; /* 4:3 Aspect Ratio (height is 75% of width) */
+            overflow: hidden;
+        }
+
+        .product-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05); /* Simple hover effect */
+        }
+
+        .wishlist-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+
+        .wishlist-btn:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .wishlist-btn svg {
+            fill: var(--secondary-color);
+            width: 16px;
+            height: 16px;
+        }
+
+        .product-info {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1; /* Allows info section to take up remaining space */
+        }
+
+        .product-name {
+            font-size: 1.1em;
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .product-price {
+            font-size: 1.2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
         .product-details {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Adjusted for smaller details */
             gap: 10px;
             margin-top: 5px;
+            margin-bottom: 10px;
         }
 
         .product-detail {
@@ -118,65 +211,89 @@
             align-items: center;
             gap: 5px;
         }
-        
+
         .product-detail svg {
             flex-shrink: 0;
+            width: 14px;
+            height: 14px;
         }
 
-        .product-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .view-details {
-            flex: 1;
-            padding: 8px;
-            background: white;
-            color: var(--primary-color);
-            border: 1px solid var(--primary-color);
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-        }
-        
-        .view-details:hover {
-            background: var(--light-color);
-        }
-        
         .color-options {
             display: flex;
             gap: 5px;
             margin-top: 5px;
+            margin-bottom: 15px;
         }
-        
+
         .color-option {
             width: 20px;
             height: 20px;
             border-radius: 50%;
             border: 1px solid var(--border-color);
             cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
-        
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: auto; /* Pushes actions to the bottom */
+        }
+
+        .view-details,
+        .add-to-cart {
+            flex: 1;
+            padding: 10px; /* Increased padding */
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none; /* Ensure view-details link looks like a button */
+            font-size: 1em;
+        }
+
+        .view-details {
+            background: white;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .view-details:hover {
+            background: var(--light-color);
+        }
+
+        .add-to-cart {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+        }
+
+        .add-to-cart:hover {
+            background: var(--secondary-color);
+        }
+
         .category-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
         }
-        
+
+        .section-title {
+            margin: 0; /* Remove default margin */
+        }
+
         .view-all {
             font-size: 0.9em;
             color: var(--secondary-color);
             text-decoration: none;
             transition: color 0.3s;
         }
-        
+
         .view-all:hover {
             color: var(--primary-color);
         }
-        
+
         .product-tag {
             position: absolute;
             top: 10px;
@@ -186,29 +303,35 @@
             padding: 5px 10px;
             font-size: 0.8em;
             border-radius: 4px;
+            z-index: 10;
         }
-        
+
         .product-tag.sale {
-            background: #e53935;
+            background: #e53935; /* Red */
         }
-        
+
         .product-tag.new {
-            background: #43a047;
+            background: #43a047; /* Green */
         }
-        
+
         /* Sale price styling */
         .sale-price {
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        
+
         .original-price {
             text-decoration: line-through;
             color: #999;
             font-size: 0.9em;
         }
-        
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .product-filters {
@@ -216,19 +339,37 @@
                 align-items: flex-start;
                 gap: 15px;
             }
-            
+
             .filter-options {
                 width: 100%;
                 overflow-x: auto;
                 padding-bottom: 5px;
+                flex-wrap: nowrap; /* Prevent wrapping in the filter row on small screens */
             }
-            
+
+            .filter-options select {
+                 min-width: 120px; /* Ensure selects have a minimum width */
+            }
+
             .sort-options {
                 width: 100%;
             }
-            
+
             .sort-options select {
                 flex: 1;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Adjust for smaller screens */
+            }
+
+             .category-list {
+                flex-wrap: wrap; /* Allow category list to wrap */
+                justify-content: center; /* Center category links */
+            }
+
+             .category-list li {
+                flex-shrink: 0; /* Prevent shrinking */
             }
         }
     </style>
@@ -236,10 +377,9 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="container">
-        <!-- Left sidebar/main menu -->
         <div class="sidebar">
             <div class="logo">
-                <img src="/api/placeholder/200/100" alt="TipToe Soles Logo">
+                <img src="TipToe Soles_Logo_colour.png" alt="TipToe Soles Logo">
             </div>
             <ul class="menu">
                 <li><a href="home.html" >Home</a></li>
@@ -260,9 +400,7 @@
             </div>
         </div>
 
-        <!-- Main content area -->
         <div class="main-content" id="main-content">
-            <!-- Banner with products image -->
             <div class="banner">
                 <img src="/api/placeholder/800/600" alt="TipToe Soles footwear collection">
                 <div class="banner-content">
@@ -271,7 +409,6 @@
                 </div>
             </div>
 
-            <!-- Category Navigation -->
             <div class="category-navigation">
                 <h2>Product Categories</h2>
                 <ul class="category-list">
@@ -284,7 +421,6 @@
                 </ul>
             </div>
 
-            <!-- Product Filters -->
             <div class="product-filters">
                 <div class="filter-options">
                     <select aria-label="Filter by size">
@@ -326,14 +462,12 @@
                 </div>
             </div>
 
-            <!-- Daily Comfort Section -->
             <div id="daily-comfort" class="category-section">
                 <div class="category-header">
                     <h2 class="section-title">Daily Comfort Collection</h2>
                     <a href="#" class="view-all">View All Daily Comfort</a>
                 </div>
                 <div class="product-grid">
-                    <!-- Product 1 -->
                     <div class="product-card">
                         <div class="product-image">
                             <img src="Gary Tan.jpg" alt="Everyday Walk Black Shoes">
@@ -374,7 +508,6 @@
                         </div>
                     </div>
 
-                    <!-- Product 2 -->
                     <div class="product-card">
                         <div class="product-image">
                             <img src="Heavenly Black.jpg" alt="Heavenly Heel Black Shoes">
@@ -416,7 +549,6 @@
                         </div>
                     </div>
 
-                    <!-- Product 3 -->
                     <div class="product-card">
                         <div class="product-image">
                             <img src="/api/placeholder/400/300" alt="Soft Step Lounge Shoes">
@@ -455,7 +587,6 @@
                         </div>
                     </div>
 
-                    <!-- Product 4 -->
                     <div class="product-card">
                         <div class="product-image">
                             <img src="/api/placeholder/400/300" alt="Breeze Walk Slip-Ons">
@@ -497,16 +628,329 @@
                 </div>
             </div>
 
-            <!-- Work & Office Section -->
             <div id="work" class="category-section">
                 <div class="category-header">
                     <h2 class="section-title">Work & Office Collection</h2>
                     <a href="#" class="view-all">View All Work & Office</a>
                 </div>
                 <div class="product-grid">
-                    <!-- Product 1 -->
                     <div class="product-card">
                         <div class="product-image">
                             <img src="/api/placeholder/400/300" alt="Classic Work Oxford">
                             <button class="wishlist-btn" aria-label="Add to wishlist">
                                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Classic Work Oxford</h3>
+                            <p class="product-price">$110.00</p>
+                            <div class="product-details">
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 13a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+                                    </svg>
+                                    <span>Sizes 7-13</span>
+                                </div>
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                    </svg>
+                                    <span>2 Colors</span>
+                                </div>
+                            </div>
+                            <div class="color-options">
+                                <div class="color-option" style="background-color: #000000;" aria-label="Black color option"></div>
+                                <div class="color-option" style="background-color: #8B4513;" aria-label="Brown color option"></div>
+                            </div>
+                            <div class="product-actions">
+                                <a href="#" class="view-details">View Details</a>
+                                <button class="add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/300" alt="Professional Loafer">
+                             <div class="product-tag bestseller">Bestseller</div>
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Professional Loafer</h3>
+                            <p class="product-price">$120.00</p>
+                            <div class="product-details">
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 13a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+                                    </svg>
+                                    <span>Sizes 6-12</span>
+                                </div>
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                    </svg>
+                                    <span>3 Colors</span>
+                                </div>
+                            </div>
+                            <div class="color-options">
+                                <div class="color-option" style="background-color: #000000;" aria-label="Black color option"></div>
+                                <div class="color-option" style="background-color: #808080;" aria-label="Grey color option"></div>
+                                <div class="color-option" style="background-color: #000080;" aria-label="Navy color option"></div>
+                            </div>
+                            <div class="product-actions">
+                                <a href="#" class="view-details">View Details</a>
+                                <button class="add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="weekend" class="category-section">
+                <div class="category-header">
+                    <h2 class="section-title">Weekend & Casual Collection</h2>
+                    <a href="#" class="view-all">View All Weekend & Casual</a>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/300" alt="Casual Sneaker">
+                             <div class="product-tag new">New</div>
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Casual Sneaker</h3>
+                            <p class="product-price">$75.00</p>
+                            <div class="product-details">
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 13a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+                                    </svg>
+                                    <span>Sizes 5-12</span>
+                                </div>
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                    </svg>
+                                    <span>5 Colors</span>
+                                </div>
+                            </div>
+                            <div class="color-options">
+                                <div class="color-option" style="background-color: #FFFFFF;" aria-label="White color option"></div>
+                                <div class="color-option" style="background-color: #000000;" aria-label="Black color option"></div>
+                                <div class="color-option" style="background-color: #808080;" aria-label="Grey color option"></div>
+                                <div class="color-option" style="background-color: #000080;" aria-label="Navy color option"></div>
+                                <div class="color-option" style="background-color: #D2B48C;" aria-label="Taupe color option"></div>
+                            </div>
+                            <div class="product-actions">
+                                <a href="#" class="view-details">View Details</a>
+                                <button class="add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="walking" class="category-section">
+                <div class="category-header">
+                    <h2 class="section-title">Walking & Active Collection</h2>
+                    <a href="#" class="view-all">View All Walking & Active</a>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="flex white.webp" alt="White Flex Plus">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Flex White Shoes/h3>
+                            <p class="product-price">$99.00</p>
+                            <div class="product-details">
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 13a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+                                    </svg>
+                                    <span>Sizes 6-12</span>
+                                </div>
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                    </svg>
+                                    <span>4 Colors</span>
+                                </div>
+                            </div>
+                            <div class="color-options">
+                                <div class="color-option" style="background-color: #FFFFFF;" aria-label="White color option"></div>
+                                <div class="color-option" style="background-color: #000000;" aria-label="Black color option"></div>
+                                <div class="color-option" style="background-color: #808080;" aria-label="Grey color option"></div>
+                                <div class="color-option" style="background-color: #000080;" aria-label="Navy color option"></div>
+                            </div>
+                            <div class="product-actions">
+                                <a href="#" class="view-details">View Details</a>
+                                <button class="add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="formal" class="category-section">
+                <div class="category-header">
+                    <h2 class="section-title">Formal Occasions Collection</h2>
+                    <a href="#" class="view-all">View All Formal Occasions</a>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/300" alt="Elegant Dress Shoe">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Elegant Dress Shoe</h3>
+                            <p class="product-price">$150.00</p>
+                            <div class="product-details">
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 13a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+                                    </svg>
+                                    <span>Sizes 7-13</span>
+                                </div>
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                    </svg>
+                                    <span>2 Colors</span>
+                                </div>
+                            </div>
+                            <div class="color-options">
+                                <div class="color-option" style="background-color: #000000;" aria-label="Black color option"></div>
+                                <div class="color-option" style="background-color: #8B4513;" aria-label="Brown color option"></div>
+                            </div>
+                            <div class="product-actions">
+                                <a href="#" class="view-details">View Details</a>
+                                <button class="add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sale" class="category-section">
+                <div class="category-header">
+                    <h2 class="section-title">Sale Items</h2>
+                    <a href="#" class="view-all">View All Sale Items</a>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="/api/placeholder/400/300" alt="Sale Item Example">
+                            <div class="product-tag sale">Sale</div>
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Sale Item Example</h3>
+                            <p class="product-price sale-price">
+                                <span class="original-price">$100.00</span>
+                                $70.00
+                            </p>
+                            <div class="product-details">
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm0 13a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+                                    </svg>
+                                    <span>Sizes 6-11</span>
+                                </div>
+                                <div class="product-detail">
+                                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                    </svg>
+                                    <span>3 Colors</span>
+                                </div>
+                            </div>
+                             <div class="color-options">
+                                <div class="color-option" style="background-color: #000000;" aria-label="Black color option"></div>
+                                <div class="color-option" style="background-color: #8B4513;" aria-label="Brown color option"></div>
+                                <div class="color-option" style="background-color: #808080;" aria-label="Grey color option"></div>
+                            </div>
+                            <div class="product-actions">
+                                <a href="#" class="view-details">View Details</a>
+                                <button class="add-to-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="product-pagination">
+                <ul class="pagination-list">
+                    <li><a href="#" class="active">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle active class on category links
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryLinks = document.querySelectorAll('.category-list a');
+
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    // Remove active class from all links
+                    categoryLinks.forEach(item => {
+                        item.classList.remove('active');
+                    });
+
+                    // Add active class to the clicked link
+                    this.classList.add('active');
+                });
+            });
+
+            // Optional: Add logic to set active class on load based on URL hash
+            if (window.location.hash) {
+                const targetId = window.location.hash;
+                const targetLink = document.querySelector(`.category-list a[href="${targetId}"]`);
+                if (targetLink) {
+                     categoryLinks.forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    targetLink.classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
