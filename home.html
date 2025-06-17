@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TipToe Soles - Comfort Footwear</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .cart-link {
+            position: relative !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+        }
+
+        .cart-badge {
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+            font-weight: bold;
+            min-width: 18px;
+            text-align: center;
+            margin-left: 8px;
+        }
+
+        .cart-badge:empty {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -21,6 +45,10 @@
                 <li><a href="Services.html">Services</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="wishlist.html">Wishlist</a></li>
+                <li><a href="cart.html" class="cart-link">
+                    Cart
+                    <span class="cart-badge" id="cart-count">0</span>
+                </a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
             <div class="search-box">
@@ -255,5 +283,38 @@
             <p>&copy; 2025 TipToe Soles. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Cart functionality
+        let cartCount = 0;
+        const cartBadge = document.getElementById('cart-count');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+        // Update cart badge display
+        function updateCartBadge() {
+            cartBadge.textContent = cartCount;
+            cartBadge.style.display = cartCount > 0 ? 'inline-block' : 'none';
+        }
+
+        // Add event listeners to all "Add to Cart" buttons
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                cartCount++;
+                updateCartBadge();
+                
+                // Visual feedback
+                this.textContent = 'Added!';
+                this.style.background = '#4a9eff';
+                
+                setTimeout(() => {
+                    this.textContent = 'Add to Cart';
+                    this.style.background = '';
+                }, 1000);
+            });
+        });
+
+        // Initialize cart badge
+        updateCartBadge();
+    </script>
 </body>
 </html>
